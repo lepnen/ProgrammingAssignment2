@@ -1,5 +1,9 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+# This scripts has two functions makeCacheMatrix and cacheSolve.
+# Main point of these functions is to be able to retreve inverse of a matrix from cache rather
+# than always calculating it, which can be slow
+
 
 ## Write a short comment describing this function
 # Creates a cache for a matrix which can be set and retrieved (get)
@@ -27,7 +31,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
     invM <- x$getInvMatrix()
-    if (any(is.na(as.vector(x)))){
+    if (is.null(x)){
         message("getting cached data!")
         return(invM)
     }
@@ -36,3 +40,4 @@ cacheSolve <- function(x, ...) {
     x$setInvMatrix(invM)
     invM
 }
+
